@@ -1,0 +1,30 @@
+[project]
+name = "vector-runner"
+version = "0.1.0"
+description = "An auto-scrolling wireframe platformer with a phosphor-green aesthetic, in a single pygame file."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+dependencies = [
+    "pygame>=2.6,<3",
+    "numpy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+vector-runner = "game:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# pyflakes (F), pycodestyle errors/warnings (E/W), isort (I), pyupgrade (UP), bugbear (B)
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

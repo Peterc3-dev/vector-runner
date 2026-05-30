@@ -18,7 +18,7 @@ A score, current speed, and high score are shown in the HUD. The high score is k
 
 ## Status
 
-Complete and runnable as a self-contained mini-game. It is a single-file hobby project (`game.py`, ~450 lines); there is no menu system, no persistence, and no test suite.
+Complete and runnable as a self-contained mini-game. It is a single-file hobby project (`game.py`, ~450 lines); there is no menu system and no persistence. There is a small unit-test suite covering the pure game logic (see [Development](#development)).
 
 ## Requirements
 
@@ -42,6 +42,24 @@ A 960x540 window opens.
 
 - **Space / Up / W** — jump (press again in the air for a double jump); also restarts after game over
 - **Esc** — quit
+
+## Development
+
+Install the dev dependencies, then lint and run the tests:
+
+```bash
+pip install -r requirements-dev.txt
+ruff check .
+pytest -q tests
+```
+
+The tests cover only display-free logic — the jump state machine, obstacle
+collision math, position/scroll updates, death detection, particle physics, and
+generation-parameter invariants. Rendering (`draw` methods), runtime audio
+synthesis (`gen_sound`, which needs the pygame mixer), and the `main` loop are
+not exercised, since they require a real display and audio device. CI sets
+`SDL_VIDEODRIVER=dummy` / `SDL_AUDIODRIVER=dummy` so the module can be imported
+headlessly.
 
 ## Notes / limitations
 

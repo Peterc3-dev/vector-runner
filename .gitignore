@@ -9,6 +9,10 @@ dist/
 *.egg-info/
 .eggs/
 
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+
 # Virtual environments
 .venv/
 venv/

@@ -1,0 +1,4 @@
+# Runtime dependencies for Vector Runner.
+# Versions reflect what the game was tested against; loosen if you need to.
+pygame>=2.6,<3
+numpy>=2.0

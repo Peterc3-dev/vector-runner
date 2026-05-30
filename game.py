@@ -3,9 +3,8 @@
 
 import math
 import random
-import struct
-import sys
 import time
+
 import numpy as np
 import pygame
 
@@ -323,7 +322,8 @@ def main():
                 if event.key in (pygame.K_SPACE, pygame.K_UP, pygame.K_w):
                     if game_over:
                         if time.time() - game_over_time > 0.5:
-                            player, platforms, obstacles, particles, stars_far, stars_mid, debris = new_game()
+                            (player, platforms, obstacles, particles,
+                             stars_far, stars_mid, debris) = new_game()
                             scroll_speed = SCROLL_BASE
                             score = 0
                             last_milestone = 0
